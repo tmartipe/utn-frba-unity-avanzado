@@ -3547,11 +3547,26 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &1858606793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858606784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938767dc388750c4b8e765a5d4a47d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 0}
+  shootDelay: 0
+  slider: {fileID: 0}
 --- !u!1001 &1919332888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3901,6 +3916,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4705236869466688283, guid: 113aa5c81a3a58a4a911e720943f639c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1858606792}
+    - targetCorrespondingSourceObject: {fileID: 4705236869466688283, guid: 113aa5c81a3a58a4a911e720943f639c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1858606793}
   m_SourcePrefab: {fileID: 100100000, guid: 113aa5c81a3a58a4a911e720943f639c, type: 3}
 --- !u!4 &2084946607 stripped
 Transform:
