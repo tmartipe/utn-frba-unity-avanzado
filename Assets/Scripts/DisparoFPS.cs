@@ -12,6 +12,8 @@ public class DisparoFPS : MonoBehaviour
     private Camera _mainCamera;
     public Slider slider;
 
+    public float danio;
+
     private void Awake()
     {
         _mainCamera = Camera.main;
@@ -39,10 +41,9 @@ public class DisparoFPS : MonoBehaviour
         if (choco)
         {
             Instantiate(hitEffect, hit.point, Quaternion.identity);
-            if (hit.transform.tag == "Target")
-            {
-                hit.transform.gameObject.GetComponent<Life>().ReceiveDamage(15f);
-            }
+            if (hit.transform.CompareTag("Enemy")) 
+                hit.collider.gameObject.GetComponent<ZonaDanio>().RecibirDanio(danio);
+            
         }
     }
 }

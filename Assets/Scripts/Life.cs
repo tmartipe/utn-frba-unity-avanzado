@@ -8,6 +8,5 @@ public class Life : MonoBehaviour
     public void ReceiveDamage(float dmg)
     {
         vidaRestante -= dmg;
-        Debug.Log(vidaRestante);
     }
 }
