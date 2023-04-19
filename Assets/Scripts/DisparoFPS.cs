@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [SuppressMessage("ReSharper", "PossibleLossOfFraction")]
 public class DisparoFPS : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem hitEffect;
+    [SerializeField] private ParticleSystem hitEffect; 
     private bool _canShoot;
     private float _timeUntilShoot;
     public float shootDelay;
