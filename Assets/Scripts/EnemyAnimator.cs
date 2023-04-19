@@ -6,38 +6,51 @@ using UnityEngine.InputSystem;
 
 public class EnemyAnimator : MonoBehaviour
 {
-    //todo: Complete code with Unity Input System 1.5.1 Use Actions Asset aproach.
-    private EnemyInputActions _inputActions;
-    private Vector2 _moveVector;
     private Animator _animator;
-    private static readonly int InputStrength = Animator.StringToHash("InputStrength");
-    private static readonly int Shoot = Animator.StringToHash("Shoot");
+    private Rigidbody _rb;
+    
+    private readonly float _timeBetweenAnim = 2f;
+    private float _timer;
+    [SerializeField]
+    private int _animState;
 
     private void Awake()
     {
-        _inputActions = new EnemyInputActions();
         _animator = GetComponent<Animator>();
-        _inputActions.Animations.Shoot.performed += OnShoot;
+        _rb = GetComponent<Rigidbody>();
+        _timer = _timeBetweenAnim;
     }
 
     void Update()
     {
-        _moveVector = _inputActions.Animations.Run.ReadValue<Vector2>();
-        _animator.SetFloat(InputStrength,Mathf.Abs(_moveVector.x));
+        if (_timer > 0) {
+            _timer -= Time.deltaTime;
+        }
+        else
+        {
+            _timer = _timeBetweenAnim;
+            UpdateAnimState();
+            _animator.SetFloat("State", _animState);
+        }
     }
 
-    private void OnShoot(InputAction.CallbackContext context)
+    private void FixedUpdate()
     {
-        _animator.SetTrigger(Shoot);
+        Movement();
+        _rb.AddForce(Physics.gravity * 5, ForceMode.Acceleration);
     }
 
-    private void OnEnable()
+    private void UpdateAnimState()
     {
-        _inputActions.Animations.Enable();
+        if (_animState == 2)
+            _animState = 0;
+        else
+            _animState++;
     }
 
-    private void OnDisable()
+    private void Movement()
     {
-        _inputActions.Animations.Disable();
+        Vector3 movement = _animState != 1 ? Vector3.zero : Vector3.forward;
+        _rb.MovePosition(transform.position + movement * Time.deltaTime);
     }
 }

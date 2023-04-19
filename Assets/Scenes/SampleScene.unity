@@ -3525,6 +3525,33 @@ CapsuleCollider:
   m_Height: 4.3703628
   m_Direction: 1
   m_Center: {x: 0.34186253, y: 2.1822019, z: 0.47015387}
+--- !u!54 &1858606792
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858606784}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 1
 --- !u!1001 &1919332888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3827,7 +3854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5334386955181511073, guid: 113aa5c81a3a58a4a911e720943f639c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.94
+      value: -1.72
       objectReference: {fileID: 0}
     - target: {fileID: 5334386955181511073, guid: 113aa5c81a3a58a4a911e720943f639c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3871,6 +3898,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4705236869466688283, guid: 113aa5c81a3a58a4a911e720943f639c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1858606788}
+    - targetCorrespondingSourceObject: {fileID: 4705236869466688283, guid: 113aa5c81a3a58a4a911e720943f639c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1858606792}
   m_SourcePrefab: {fileID: 100100000, guid: 113aa5c81a3a58a4a911e720943f639c, type: 3}
 --- !u!4 &2084946607 stripped
 Transform:
