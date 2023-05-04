@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-enum DoorState
+public enum DoorState
 {
     Open,
     Closed
@@ -11,19 +12,18 @@ enum DoorState
 
 public class PuertaController : MonoBehaviour
 {
-    private DoorState _doorState;
+    public DoorState doorState;
     
     private Animator _buttonAnim;
-    public Animator _doorAnim;
-
-    [SerializeField]
+    public Animator doorAnim;
+    
     private float _doorTimer;
     public float doorTime = 2f;
     
     private void Awake()
     {
         _buttonAnim = GetComponent<Animator>();
-        _doorState = DoorState.Closed;
+        doorState = DoorState.Closed;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,12 +31,12 @@ public class PuertaController : MonoBehaviour
         if (other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
             _buttonAnim.SetTrigger("Pushed");
-            if (_doorState.Equals(DoorState.Closed))
+            if (doorState.Equals(DoorState.Closed))
             {
-                _doorAnim.SetTrigger("Abrir");
+                doorAnim.SetTrigger("Abrir");
                 _doorTimer = doorTime;
-                _doorState = DoorState.Open;
-            }else if (_doorState.Equals(DoorState.Open))
+                doorState = DoorState.Open;
+            }else if (doorState.Equals(DoorState.Open))
             {
                 _doorTimer = doorTime;
             }
@@ -45,12 +45,12 @@ public class PuertaController : MonoBehaviour
 
     private void Update()
     {
-        if (_doorState.Equals(DoorState.Open) && _doorTimer <= 0)
+        if (doorState.Equals(DoorState.Open) && _doorTimer <= 0)
         {
-            _doorAnim.SetTrigger("Cerrar");
-            _doorState = DoorState.Closed;
+            doorAnim.SetTrigger("Cerrar");
+            doorState = DoorState.Closed;
         }
-        else if(_doorState == DoorState.Open)
+        else if(doorState == DoorState.Open)
         {
             _doorTimer -= Time.deltaTime;
         }
